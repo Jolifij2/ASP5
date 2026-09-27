@@ -1,0 +1,33 @@
+@model ViewsApp.Models.Student
+@{
+    ViewData["Title"] = "Добавить студента";
+}
+
+<h1>Добавить нового студента</h1>
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Age)
+        @Html.TextBoxFor(m => m.Age, new { type = "number" })
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Group)
+        @Html.TextBoxFor(m => m.Group)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.City)
+        @Html.TextBoxFor(m => m.City)
+    </div>
+
+    <br />
+    <button type="submit">Сохранить</button>
+}
+
+<p>
+    @Html.ActionLink("Назад к списку", "Index")
+</p>
