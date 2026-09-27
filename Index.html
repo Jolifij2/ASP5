@@ -1,0 +1,44 @@
+@model List<ViewsApp.Models.Student>
+@{
+    ViewData["Title"] = "Список студентов";
+}
+
+<h1>@ViewData["Title"]</h1>
+<p>Всего студентов: @ViewBag.Count</p>
+
+@if (TempData["Message"] != null)
+{
+    <div style="background: #d4edda; padding: 10px; border-radius: 5px; margin-bottom: 15px;">
+        @TempData["Message"]
+    </div>
+}
+
+<p>
+    @Html.ActionLink("Добавить студента", "Create")
+</p>
+
+<table border="1" cellpadding="10">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Имя</th>
+            <th>Возраст</th>
+            <th>Группа</th>
+            <th>Город</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.Id</td>
+                <td>@student.Name</td>
+                <td>@student.Age</td>
+                <td>@student.Group</td>
+                <td>@student.City</td>
+                <td>@Html.ActionLink("Подробнее", "Details", new { id = student.Id })</td>
+            </tr>
+        }
+    </tbody>
+</table>
