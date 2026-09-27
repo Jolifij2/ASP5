@@ -1,0 +1,16 @@
+@model ViewsApp.Models.Student
+@{
+    ViewData["Title"] = "Информация о студенте";
+}
+
+<h1>@Model.Name</h1>
+
+<div style="background: #f8f9fc; padding: 20px; border-radius: 10px;">
+    <p><strong>Возраст:</strong> @Html.DisplayFor(m => m.Age)</p>
+    <p><strong>Группа:</strong> @Html.DisplayFor(m => m.Group)</p>
+    <p><strong>Город:</strong> @Html.DisplayFor(m => m.City)</p>
+</div>
+
+<p>
+    @Html.ActionLink("Назад к списку", "Index")
+</p>
